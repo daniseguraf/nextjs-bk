@@ -1,4 +1,8 @@
-import Link from 'next/link';
+import classes from './EventItem.module.css';
+import Button from './../ui/button';
+import DateIcon from './../icons/date-icon';
+import AddressIcon from './../icons/address-icon';
+import ArrowRightIcon from './../icons/arrow-right-icon';
 
 const EventItem = ({ title, date, location, id, image }) => {
   const readableDate = new Date(date).toLocaleDateString('en-US', {
@@ -7,20 +11,27 @@ const EventItem = ({ title, date, location, id, image }) => {
     year: 'numeric',
   });
   return (
-    <li>
+    <li className={classes.item}>
       <img src={`/${image}`} alt={title} />
-      <div>
-        <div>
+      <div className={classes.content}>
+        <div className={classes.summary}>
           <h2>{title}</h2>
-          <div>
+          <div className={classes.date}>
+            <DateIcon />
             <time>{readableDate}</time>{' '}
           </div>
-          <div>
+          <div className={classes.address}>
+            <AddressIcon />
             <address>{location}</address>
           </div>
         </div>
-        <div>
-          <Link href={`/events/${id}`}>Explore Event</Link>
+        <div className={classes.actions}>
+          <Button link={`/events/${id}`}>
+            <span>Explore Event</span>
+            <span className={classes.icon}>
+              <ArrowRightIcon />
+            </span>
+          </Button>
         </div>
       </div>
     </li>
