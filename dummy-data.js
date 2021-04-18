@@ -49,6 +49,7 @@ export function getFilteredEvents(dateFilter) {
     );
   });
 
+  console.log(filteredEvents);
   return filteredEvents;
 }
 

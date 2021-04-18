@@ -13,9 +13,11 @@ const EventItem = ({ title, date, location, id, image }) => {
   return (
     <li className={classes.item}>
       <img src={`/${image}`} alt={title} />
+
       <div className={classes.content}>
         <div className={classes.summary}>
           <h2>{title}</h2>
+
           <div className={classes.date}>
             <DateIcon />
             <time>{readableDate}</time>{' '}
@@ -25,6 +27,7 @@ const EventItem = ({ title, date, location, id, image }) => {
             <address>{location}</address>
           </div>
         </div>
+
         <div className={classes.actions}>
           <Button link={`/events/${id}`}>
             <span>Explore Event</span>
